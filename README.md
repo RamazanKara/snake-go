@@ -15,18 +15,18 @@ To run this game, you need to have Go installed on your system. If you don't hav
 
 Once Go is installed, you can clone this repository using:
 
-\```bash
+```bash
 git clone https://github.com/RamazanKara/snake-go.git
 cd snake-go
-\```
+```
 
 ## Running the Game
 
 To run the game, navigate to the cloned directory and use the Go run command:
 
-\```bash
+```bash
 go run main.go game.go types.go util.go
-\```
+```
 
 ## Controls
 
