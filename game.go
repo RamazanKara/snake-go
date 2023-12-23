@@ -6,7 +6,6 @@ import (
     "image/color"
     "math/rand"
 	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
-	"time"
 )
 
 const (
@@ -29,12 +28,7 @@ type Game struct {
 
 }
 
-
-
-func init() {
-    rand.Seed(time.Now().UnixNano())
-}
-
+// Update progresses the game state by one tick. It's called on every frame.
 func (g *Game) Update() error {
 
 	if g.gameOver {
@@ -85,7 +79,7 @@ func (g *Game) Update() error {
     return nil
 }
 
-
+// Draw renders the game state to the screen. It's called on every frame after Update.
 func (g *Game) Draw(screen *ebiten.Image) {
 	if g.gameOver {
         g.drawGameOverScreen(screen)
@@ -121,6 +115,10 @@ func (g *Game) Draw(screen *ebiten.Image) {
 }
 }
 
+// Layout defines the layout for the game. It's called when the game starts.
+func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
+    return screenWidth, screenHeight
+}
 
 func (g *Game) isGameOver() bool {
     head := g.snake[len(g.snake)-1]
@@ -165,8 +163,4 @@ func (g *Game) drawGameOverScreen(screen *ebiten.Image) {
     opts := &ebiten.DrawImageOptions{}
     opts.GeoM.Translate(float64(xPosition), float64(yPosition))
     screen.DrawImage(txtImg, opts)
-}
-
-func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
-    return screenWidth, screenHeight
 }
