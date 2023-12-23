@@ -1,0 +1,25 @@
+# Binaries
+/bin/
+*.exe
+*.exe~
+
+# Dependency directories (remove the comment below if you are using dependency management tools like Go Modules)
+#/vendor/
+#/pkg/
+
+# Editor directories and files
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Go build output
+*.o
+*.a
+
+# Go test binaries
+*.test
